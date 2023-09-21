@@ -7,11 +7,11 @@ from tkinter.ttk import Progressbar
 from tkinter.messagebox import showinfo
 
 from pytube import YouTube
+import time
 
 def update_progress_label():
-   # print(pb['value'])
-    
-    return f"Current Progress: {pb['value']}%"
+    print(pb['value'])
+    return f"Progreso actual: {pb['value']}%"
     
 
 #def progress():
@@ -51,6 +51,11 @@ def DownloadYT(url):
 def new_func(youtubeObject):
     return youtubeObject.streams.get_highest_resolution()
 
+def limpiar_button():
+    #entry = ttk.Entry(width=60)
+# Posicionarla en la ventana.
+    #entry.place(x=100, y=50)
+    entry.insert(0, "Copie aqui la URL del video de Youtube")
  
 root = tk.Tk()
 root.geometry("500x300")
@@ -61,7 +66,17 @@ entry = ttk.Entry(width=60)
 # Posicionarla en la ventana.
 entry.place(x=100, y=50)
 
-entry.insert(0, "Copie aqui la URL del video de Youtube")
+
+# clean button
+clean_button = ttk.Button(
+    root,
+    text='Limpiar',
+    command=limpiar_button()
+)
+clean_button.grid(column=1, row=150, padx=10, pady=2, sticky=tk.E)
+
+
+#entry.insert(0, "Copie aqui la URL del video de Youtube")
 
 button = ttk.Button(text="Bajar video", command=lambda: DownloadYT(entry.get()))
 button.place(x=10, y=50)
@@ -80,13 +95,6 @@ pb.grid(column=5, row=150, columnspan=2, padx=1, pady=100)
 value_label = ttk.Label(root, text=update_progress_label())
 value_label.grid(column=0, row=151, columnspan=52)
 
-# start button
-#start_button = ttk.Button(
-#    root,
-#    text='Progress',
-#    command=progress
-#)
-#start_button.grid(column=10, row=150, padx=10, pady=2, sticky=tk.E)
 
 #stop_button = ttk.Button(
 #    root,
