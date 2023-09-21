@@ -55,6 +55,7 @@ def limpiar_button():
     #entry = ttk.Entry(width=60)
 # Posicionarla en la ventana.
     #entry.place(x=100, y=50)
+    entry.delete(0, tk.END)
     entry.insert(0, "Copie aqui la URL del video de Youtube")
  
 root = tk.Tk()
@@ -66,12 +67,12 @@ entry = ttk.Entry(width=60)
 # Posicionarla en la ventana.
 entry.place(x=100, y=50)
 
-
+limpiar_button()
 # clean button
 clean_button = ttk.Button(
     root,
     text='Limpiar',
-    command=limpiar_button()
+    command=limpiar_button
 )
 clean_button.grid(column=1, row=150, padx=10, pady=2, sticky=tk.E)
 
