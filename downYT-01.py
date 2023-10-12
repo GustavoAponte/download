@@ -1,6 +1,6 @@
 #Programa para bajar archivos de Youtube con barra de progreso
 #practica de Python y Tkinter
-#Septiembre 2023
+#Octubre 2023
 import tkinter as tk
 from tkinter import HORIZONTAL, Label, ttk
 from tkinter.ttk import Progressbar
